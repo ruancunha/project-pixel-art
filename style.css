@@ -5,16 +5,13 @@
 
 .color {
   border: black solid 1px;
-  /* border-width: 1px;
-  border-color: black;
-  border-style: solid; */
   width: 100px;
   height: 100px;
   display: inline-block;
   background-color: black;
 }
 
-.red {
+/* .red {
   background-color: red;
 }
 
@@ -24,11 +21,15 @@
 
 .orange {
   background-color: orange;
-}
+} */
 
 .pixel {
   background-color: white;
   border: black solid 1px;
   width: 40px;
   height: 40px;
+}
+
+#generate-board {
+  display: inline-block;
 }
