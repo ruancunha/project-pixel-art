@@ -2,10 +2,6 @@ const paleta = document.getElementById('color-palette');
 const tela = document.getElementById('table-row');
 const geraTela = document.querySelector('#generate-board');
 const tamanhoTela = document.querySelector('#board-size');
-document.querySelector('.black').style.backgroundColor = 'black';
-document.querySelector('.red').style.backgroundColor = corAleatoria();
-document.querySelector('.green').style.backgroundColor = corAleatoria();
-document.querySelector('.orange').style.backgroundColor = corAleatoria();
 
 function corSelecionada(cor) {
   const parent = paleta.childNodes;
@@ -26,11 +22,11 @@ function corAleatoria() {
 
 function pintaPixel(pix) {
   const pixelClicado = pix.target;
-  const corSelecionada = document.querySelector('.selected').style.backgroundColor;
-  if (pixelClicado.style.backgroundColor === corSelecionada) {
+  const corSelected = document.querySelector('.selected').style.backgroundColor;
+  if (pixelClicado.style.backgroundColor === corSelected) {
     pixelClicado.style.backgroundColor = 'white';
   } else {
-    pixelClicado.style.backgroundColor = corSelecionada;
+    pixelClicado.style.backgroundColor = corSelected;
   }
 }
 
@@ -38,6 +34,20 @@ function limpaTela() {
   const pixels = document.querySelectorAll('.pixel');
   for (let i = 0; i < pixels.length; i += 1) {
     pixels[i].style.backgroundColor = null;
+  }
+}
+
+function tamanhoMinMax(input) {
+  if (input.value >= 50) {
+    criaTela(50);
+    alert('O tamanho máximo é 50');
+  }
+  if (input.value <= 5) {
+    criaTela(5);
+    alert('O tamanho mínimo é 5');
+  }
+  if (input.value >= 5 && input.value <= 50) {
+    criaTela(input.value);
   }
 }
 
@@ -62,21 +72,11 @@ function criaTela(value) {
   }
 }
 
-function tamanhoMinMax(input) {
-  if (input.value >= 50) {
-    criaTela(50);
-    alert('O tamanho máximo é 50');
-  }
-  if (input.value <= 5) {
-    criaTela(5);
-    alert('O tamanho mínimo é 5');
-  }
-  if (input.value >= 5 && input.value <= 50) {
-    criaTela(input.value);
-  }
-}
-
 paleta.addEventListener('click', corSelecionada);
 document.getElementById('clear-board').addEventListener('click', limpaTela);
 tela.addEventListener('click', pintaPixel);
 geraTela.addEventListener('click', botaoVQV);
+document.querySelector('.black').style.backgroundColor = 'black';
+document.querySelector('.red').style.backgroundColor = corAleatoria();
+document.querySelector('.green').style.backgroundColor = corAleatoria();
+document.querySelector('.orange').style.backgroundColor = corAleatoria();
