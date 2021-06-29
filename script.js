@@ -37,6 +37,19 @@ function limpaTela() {
   }
 }
 
+function criaTela(value) {
+  tela.innerHTML = null;
+  for (let tr = 0; tr < value; tr += 1) {
+    const trs = document.createElement('tr');
+    for (let td = 0; td < value; td += 1) {
+      const tds = document.createElement('td');
+      tds.classList.add('pixel');
+      trs.appendChild(tds);
+    }
+    tela.appendChild(trs);
+  }
+}
+
 function tamanhoMinMax(input) {
   if (input.value >= 50) {
     criaTela(50);
@@ -56,19 +69,6 @@ function botaoVQV() {
     alert('Board inválido!');
   } else {
     tamanhoMinMax(tamanhoTela);
-  }
-}
-
-function criaTela(value) {
-  tela.innerHTML = null;
-  for (let tr = 0; tr < value; tr += 1) {
-    const trs = document.createElement('tr');
-    for (let td = 0; td < value; td += 1) {
-      const tds = document.createElement('td');
-      tds.classList.add('pixel');
-      trs.appendChild(tds);
-    }
-    tela.appendChild(trs);
   }
 }
 
