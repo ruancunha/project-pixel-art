@@ -1,0 +1,14 @@
+#color-palette, #title {
+  margin: auto;
+  text-align: center
+}
+
+.color {
+  border-width: 1px;
+  border-color: black;
+  border-style: solid;
+  width: 100px;
+  height: 100px;
+  display: inline-block;
+  background-color: black;
+}
